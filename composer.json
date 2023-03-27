@@ -1,0 +1,19 @@
+{
+    "name": "junior/rotas",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        },
+        "files": [
+            "app/router/router.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "noziX",
+            "email": "94942615+noziXsHooter@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
