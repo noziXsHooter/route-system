@@ -6,43 +6,38 @@ class Request{
 
     /**
      * Método da requisição
-     *
      * @var string
      */
     private $httpRequest;
 
     /**
      * URI da página
-     *
      * @var string
      */
     private $uri;
 
     /**
      * Parametros do URL ($_GET)
-     *
      * @var array
      */
     private $queryParams = [];
     
     /**
      * Parametros do URL ($_POST)
-     *
      * @var array
      */
     private $postVars = [];
 
     /**
      * Cabeçalho da requisição
-     *
      * @var array
      */
     private $headers = [];
 
     public function __construct()
     {
-        $this->httpRequest = $_SESSION['HTTP_REQUEST_METHOD'] ?? '';
-        $this->uri = $_SESSION['REQUEST_URI'] ?? '';
+        $this->httpRequest = $_SERVER['REQUEST_METHOD'] ?? '';
+        $this->uri = $_SERVER['REQUEST_URI'] ?? '';
         $this->queryParams = $_GET ?? '';
         $this->postVars = $_POST ?? '';
         $this->headers = getallheaders() ?? '';
@@ -50,8 +45,7 @@ class Request{
     
     /**
      * Retorna o metodo da requisicao
-     *
-     * @return void
+     * @return string
      */
     public function getHttpMethod(){
         return $this->httpRequest;
@@ -59,8 +53,7 @@ class Request{
 
     /**
      * Retorna a uri da requisicao
-     *
-     * @return void
+     * @return string
      */
     public function getUri(){
         return $this->uri;
@@ -68,8 +61,7 @@ class Request{
 
     /**
      * Retorna os parametros da requisicao
-     *
-     * @return void
+     * @return array
      */
     public function getQueryParams(){
         return $this->queryParams;
@@ -77,8 +69,7 @@ class Request{
 
     /**
      * Retorna as variaveis POST da requisicao
-     *
-     * @return void
+     * @return array
      */
     public function getPostVars(){
         return $this->postVars;
@@ -86,8 +77,7 @@ class Request{
 
     /**
      * Retorna os headers da requisicao
-     *
-     * @return void
+     * @return array
      */
     public function getHeaders(){
         return $this->headers;

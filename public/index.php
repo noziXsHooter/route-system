@@ -2,21 +2,20 @@
 
 require "bootstrap.php";
 
-/* router(); */
 use \App\Http\Router;
-use \App\Http\Response;
-use \App\Controller\Pages\Home;
+use App\Utils\View;
 
-define('URL', 'http://rotas.test');
+define('URL', 'http://route-system.test');
+
+//DEFINE O VALOR PADRAO DAS VARIAVEIS
+View::init([
+    'URL' => URL
+]);
 
 $obRouter = new Router(URL);
 
-//ROTA HOME
-$obRouter->get('/', [
-    function(){
-        return new Response(200, Home::getHome());
-    }
-]);
+//INCLUI A ROTA DE PAGINAS
+include __DIR__ . '/../routes/pages.php';
 
 //IMPRIME O RESPONSE DA ROTA
 $obRouter->run()->sendResponse();

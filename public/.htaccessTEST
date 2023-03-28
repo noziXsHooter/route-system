@@ -20,7 +20,6 @@ Options All -Indexes
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} (.+)/$
 	RewriteRule ^ %1 [L,R=301]
-	RewriteRule api ./index.php
 
 	# Rewrite "www.example.com -> example.com"
 	RewriteCond %{HTTPS} !=on

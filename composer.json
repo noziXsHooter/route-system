@@ -6,7 +6,6 @@
             "App\\":"app/"
         },
         "files": [
-            "app/router/router.php"
         ]
     },
     "authors": [
